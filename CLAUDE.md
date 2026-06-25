@@ -52,3 +52,23 @@ En ligne (preview) : https://akka-onboarding.netlify.app · Cible pilote : sous-
    5. Page Webflow `akka.app/join` (blanche) : coller l'embed (div + link + script).
    6. Vérifs : zéro erreur CORS en console ; fonts/logos chargés depuis `cdn.akka.app` ; redirect confirmation + iClosed + capture UTM OK sur la vraie URL.
 6. **GA4/GTM sur akka.app + Optibase A/B** — tout étant sur **akka.app**, **plus de cross-domain** : le GTM/GA4 du site principal couvre le funnel et reçoit les events dataLayer (Tâche 3) ; conversion = visite de `akka.app/join-form-confirmation`. Baseline GA4 + métrique-relais, puis **Optibase** (split URL control vs variante, objectif bayésien P2BB).
+
+## Skills & outils recommandés (environnement Claude Code)
+> Choix d'**environnement** (à installer une fois), distincts des règles projet ci-dessus. Rester sélectif : trop de skills auto-déclenchées = bruit + tokens.
+
+**Déjà installés, utiles ici** : `verification-before-completion`, `writing-plans`, `systematic-debugging`, `test-driven-development`, `git-pushing`, `owasp-security`, `vibesec-skill`, `webapp-testing`, `design-auditor`, `oiloil-ui-ux-guide`.
+
+**À ajouter (net-new), mappés aux tâches** :
+- **`using-git-worktrees` + `finishing-a-development-branch`** — faire les tâches 1→6 une par branche, proprement.
+- **`agnix`** — linter qui valide ce `CLAUDE.md` / les SKILL.md / hooks.
+- **`review-claudemd`** — garder ce fichier affûté au fil du projet.
+- **`varlock-claude-skill`** — secrets hors sessions/logs/git (webhook Make, IDs GA4/GTM) — tâches 2, 3, 5.
+- **`sanitize`** — masquer la PII (email/téléphone), conformité RGPD/AMF — tâche 4.
+- **`review-implementing` + `test-fixing`** — évaluer un plan vs la spec, réparer les tests cassés.
+- **`email-html-mjml`** — emails de confirmation Brevo (HTML responsive) quand le webhook → Brevo sera câblé.
+
+**Outils (non-skills)** : `gitleaks` (hook pré-commit anti-secrets) — déjà cité en Tâche 5.
+
+**Top 3 pour démarrer** : `using-git-worktrees`, `varlock`, `agnix`. Le reste s'ajoute quand la tâche correspondante arrive.
+
+**Côté claude.ai (hors repo, stratégie / copy / CRO)** : `wondelai/skills` (hypothèses A/B, copy de conversion), `avoid-ai-writing` (humaniser la copy funnel/emails).
